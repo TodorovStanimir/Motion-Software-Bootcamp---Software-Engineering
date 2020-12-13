@@ -11,8 +11,6 @@ function solve() {
   const findKey = (el) => el.querySelector("a").textContent.trim();
   const template = (x) => `visited ${x} times`;
 
-  const elements = Array.from(document.querySelectorAll(".link-1"));
-
   document.addEventListener("click", (event) => {
     const clickedEl = event.target.parentNode.parentNode;
 
