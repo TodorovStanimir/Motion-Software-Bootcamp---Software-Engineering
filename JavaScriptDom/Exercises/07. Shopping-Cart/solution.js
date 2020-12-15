@@ -19,20 +19,18 @@ function solve() {
       !bouthProducts.includes(name) ? bouthProducts.push(name) : null;
       totalAmount += price;
 
-      resultEl.innerHTML += resultEl.innerHTML
-        ? `\nAdded ${name} for ${price.toFixed(2)} to the cart.`
-        : `Added ${name} for ${price.toFixed(2)} to the cart.`;
+      resultEl.value += `Added ${name} for ${price.toFixed(2)} to the cart.\n`;
     },
     checkout: (e) => {
       const resultEl = document.querySelector("textarea");
       if (resultEl === null) {
         throw new Error("Something happens please reload the page!");
       }
-      resultEl.innerHTML += `\nYou bought ${bouthProducts.join(
+      resultEl.value += `You bought ${bouthProducts.join(
         ", "
       )} for ${totalAmount.toFixed(2)}.`;
 
-      const buttons = Array.from(document.querySelectorAll("button")).map(
+      Array.from(document.querySelectorAll("button")).map(
         (btn) => (btn.disabled = true)
       );
     },
